@@ -1,4 +1,8 @@
-br/unigran/telascadastro/CadastroCliente.class
+br/unigran/app/ProdutoController.class
 br/unigran/telascadastro/Principal.class
-br/unigran/telascadastro/CadastroProduto.class
 br/unigran/app/SystemaAula.class
+br/unigran/models/Cliente.class
+br/unigran/telascadastro/CadastroCliente.class
+br/unigran/models/Produto.class
+br/unigran/telascadastro/CadastroProduto.class
+br/unigran/app/ClienteController.class

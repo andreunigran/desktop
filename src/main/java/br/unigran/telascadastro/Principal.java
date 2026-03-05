@@ -1,36 +1,65 @@
 package br.unigran.telascadastro;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.HeadlessException;
+import java.awt.GridLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Principal extends JFrame{
+public class Principal extends JFrame {
 
-    public Principal()  {
-     setTitle("Sistema ?");
+    private JButton btnCadastroCliente;
+    private JButton btnCadastroProduto;
+    private JButton btnSair;
+
+    public Principal() {
+        setTitle("Sistema ?");
         setSize(420, 380);
         setLayout(null); // uso de setBounds
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);//centralizado
         setExtendedState(MAXIMIZED_BOTH);//maximixado
-    
+
         init();
     }
 
     private void init() {
-        setLayout(null);
-        JPanel painel = new JPanel();
-        painel.setBounds(10, 10, 400, 100);
-        add(painel);
+        setLayout(new BorderLayout());
+        JPanel topo = new JPanel(new GridLayout());
+        JPanel centro = new JPanel();
+        JPanel rodape = new JPanel();
+        add(topo, BorderLayout.PAGE_START);
+
+        btnCadastroCliente = new JButton("Cadastro Clientes");
+        topo.add(btnCadastroCliente);
+
+        btnCadastroProduto = new JButton("Cadastro Produto");
+        topo.add(btnCadastroProduto);
+
+        btnSair = new JButton("Sair");
+        topo.add(btnSair);
         
-        JButton btnCadastroCliente = new JButton("Cadastro Clientes");
-        painel.add(btnCadastroCliente);
+        JLabel data =new JLabel("dd/mm/aaa");
+        rodape.add(data);
         
-        JButton btnCadastroProduto = new JButton("Cadastro Produto");
-        painel.add(btnCadastroProduto);
+        ImageIcon icon = new ImageIcon("imagens/foto.png");
+        JLabel imagem = new JLabel(icon);
+        imagem.setAlignmentX(FlowLayout.CENTER);
+        centro.add(imagem);
+        
+        add(rodape, BorderLayout.PAGE_END);
+        add(centro, BorderLayout.CENTER);
+
+        acoes();
     }
-    
-    
+
+    private void acoes() {
+        btnSair.addActionListener(e -> dispose());
+        btnCadastroCliente.addActionListener(e -> new CadastroCliente(true).setVisible(true));
+        btnCadastroProduto.addActionListener(e -> new CadastroProduto(true).setVisible(true));
+    }
+
 }

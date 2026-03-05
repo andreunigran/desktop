@@ -1,12 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.unigran.telascadastro;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class CadastroProduto extends JDialog {
+
+    JButton btnSalvar;
+    JTextField txtPreco;
+    public JTextField txtCodigo;
+    JTextField txtNome;
+    JTextField txtDescricao;
+    JTextField txtQuantidade;
+    
 
     public CadastroProduto(boolean modal) {
         setModal(modal);
@@ -24,7 +30,7 @@ public class CadastroProduto extends JDialog {
         lblCodigo.setBounds(20, 20, 100, 25);
         add(lblCodigo);
 
-        JTextField txtCodigo = new JTextField();
+        txtCodigo = new JTextField();
         txtCodigo.setBounds(120, 20, 200, 25);
         add(txtCodigo);
 
@@ -33,7 +39,7 @@ public class CadastroProduto extends JDialog {
         lblNome.setBounds(20, 60, 100, 25);
         add(lblNome);
 
-        JTextField txtNome = new JTextField();
+         txtNome = new JTextField();
         txtNome.setBounds(120, 60, 200, 25);
         add(txtNome);
 
@@ -42,7 +48,7 @@ public class CadastroProduto extends JDialog {
         lblDescricao.setBounds(20, 100, 100, 25);
         add(lblDescricao);
 
-        JTextField txtDescricao = new JTextField();
+        txtDescricao = new JTextField();
         txtDescricao.setBounds(120, 100, 200, 25);
         add(txtDescricao);
 
@@ -51,7 +57,7 @@ public class CadastroProduto extends JDialog {
         lblPreco.setBounds(20, 140, 100, 25);
         add(lblPreco);
 
-        JTextField txtPreco = new JTextField();
+        txtPreco = new JTextField();
         txtPreco.setBounds(120, 140, 200, 25);
         add(txtPreco);
 
@@ -60,7 +66,7 @@ public class CadastroProduto extends JDialog {
         lblQuantidade.setBounds(20, 180, 100, 25);
         add(lblQuantidade);
 
-        JTextField txtQuantidade = new JTextField();
+        txtQuantidade = new JTextField();
         txtQuantidade.setBounds(120, 180, 200, 25);
         add(txtQuantidade);
 
@@ -74,7 +80,7 @@ public class CadastroProduto extends JDialog {
         add(txtCategoria);
 
         // Botões
-        JButton btnSalvar = new JButton("Salvar");
+        btnSalvar = new JButton("Salvar");
         btnSalvar.setBounds(80, 260, 100, 30);
         add(btnSalvar);
 
@@ -82,5 +88,8 @@ public class CadastroProduto extends JDialog {
         btnCancelar.setBounds(200, 260, 100, 30);
         add(btnCancelar);
     }
-}
 
+    public void salvar(ActionListener a) {
+        btnSalvar.addActionListener(a);
+    }
+}

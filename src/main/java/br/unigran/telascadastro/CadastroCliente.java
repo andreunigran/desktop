@@ -1,4 +1,5 @@
 package br.unigran.telascadastro;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class CadastroCliente extends JDialog {
@@ -8,7 +9,7 @@ public class CadastroCliente extends JDialog {
         setTitle("Cadastro de Cliente");
         setSize(420, 380);
         setLayout(null); // uso de setBounds
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         init();
@@ -77,5 +78,11 @@ public class CadastroCliente extends JDialog {
         JButton btnCancelar = new JButton("Cancelar");
         btnCancelar.setBounds(210, 280, 100, 30);
         add(btnCancelar);
+        
+       btnCancelar.addActionListener(e->dispose());
+       btnSalvar.addActionListener(e->{
+       
+       
+       });
     }
 }
