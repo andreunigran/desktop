@@ -1,6 +1,5 @@
 package br.unigran.telascadastro;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
@@ -9,7 +8,7 @@ public class CadastroProduto extends JDialog {
     JButton btnSalvar;
     JTextField txtPreco;
     public JTextField txtCodigo;
-    JTextField txtNome;
+    public JTextField txtNome;
     JTextField txtDescricao;
     JTextField txtQuantidade;
     
@@ -22,6 +21,7 @@ public class CadastroProduto extends JDialog {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);//centraliza tela
         init();
+        
     }
 
     private void init() {

@@ -1,6 +1,13 @@
 package br.unigran.models;
 
-public class Produto {
+import br.unigran.app.persistence.Dao;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Produto extends Dao implements Serializable{
+    @Id
     private Integer codigo;
     private String nome;
     private String descricao;
@@ -57,7 +64,7 @@ public class Produto {
     }
 
     public void salvar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        salvar(this);
     }
     
     

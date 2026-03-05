@@ -1,5 +1,8 @@
 package br.unigran.telascadastro;
 
+import br.unigran.app.ClienteController;
+import br.unigran.app.ProdutoController;
+import br.unigran.models.Produto;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -41,15 +44,15 @@ public class Principal extends JFrame {
 
         btnSair = new JButton("Sair");
         topo.add(btnSair);
-        
-        JLabel data =new JLabel("dd/mm/aaa");
+
+        JLabel data = new JLabel("dd/mm/aaa");
         rodape.add(data);
-        
+
         ImageIcon icon = new ImageIcon("imagens/foto.png");
         JLabel imagem = new JLabel(icon);
         imagem.setAlignmentX(FlowLayout.CENTER);
         centro.add(imagem);
-        
+
         add(rodape, BorderLayout.PAGE_END);
         add(centro, BorderLayout.CENTER);
 
@@ -59,7 +62,14 @@ public class Principal extends JFrame {
     private void acoes() {
         btnSair.addActionListener(e -> dispose());
         btnCadastroCliente.addActionListener(e -> new CadastroCliente(true).setVisible(true));
-        btnCadastroProduto.addActionListener(e -> new CadastroProduto(true).setVisible(true));
+        // btnCadastroProduto.addActionListener(e -> new CadastroProduto(true).setVisible(true));
+        btnCadastroProduto.addActionListener(
+                e -> {
+                    CadastroProduto cadastroProduto = new CadastroProduto(true);
+                    ProdutoController controller = new ProdutoController(cadastroProduto, new Produto());
+                    cadastroProduto.setVisible(true);
+
+                });
     }
 
 }

@@ -1,13 +1,28 @@
 package br.unigran.models;
 
-public class Cliente {
+import br.unigran.app.persistence.Dao;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity(name = "cliente")
+//Table(schema = "public",name = "cliente")
+public class Cliente extends Dao implements Serializable{
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
+@Column(name = "nome")
     private String nome;
     private String cpf;
     private String telefone;
     private String email;
     private String endereco;
+
+    public Cliente() {
+    }
 
     public Cliente(Integer codigo, String nome, String cpf, String telefone, String email, String endereco) {
         this.codigo = codigo;
@@ -67,6 +82,6 @@ public class Cliente {
     }
 
     public void salvar() {
-        System.out.println("salvo");
+       salvar(this);
     }
 }
