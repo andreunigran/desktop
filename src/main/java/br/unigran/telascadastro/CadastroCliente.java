@@ -1,4 +1,5 @@
 package br.unigran.telascadastro;
+import br.unigran.app.ClienteController;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
@@ -81,7 +82,9 @@ public class CadastroCliente extends JDialog {
         
        btnCancelar.addActionListener(e->dispose());
        btnSalvar.addActionListener(e->{
-       
+           ClienteController controller = new ClienteController();
+//           controller.salvar(Integer.valueOf(txtCodigo.getText()),
+//                   txtNome.getText(), "", "", "", "","");
        
        });
     }

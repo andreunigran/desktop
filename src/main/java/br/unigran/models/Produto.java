@@ -2,18 +2,27 @@ package br.unigran.models;
 
 import br.unigran.app.persistence.Dao;
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Produto extends Dao implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo;
+    
     private String nome;
+    @Column(name = "descricao_produto")
     private String descricao;
+    @Column(precision = 4,scale = 2)
     private Double preco;
     private Double quantidade;
     private String categoria;
+    private String seila;
+    
 
     public Integer getCodigo() {
         return codigo;

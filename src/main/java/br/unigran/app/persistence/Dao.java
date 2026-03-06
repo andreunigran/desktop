@@ -1,5 +1,6 @@
 package br.unigran.app.persistence;
 
+import br.unigran.models.Cliente;
 import br.unigran.models.Produto;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,9 +20,16 @@ public class Dao {
 //    etx=em.getTransaction();
     }
     public void salvar(Object o){
-        etx.begin();
-        em.persist(o);
-        etx.commit();//opcional --por padrão ao commit  
+        try{
+            etx.begin();
+            em.persist(o);
+            etx.commit();//opcional --por padrão ao commit  
+        }catch(Exception e){
+           etx.rollback();
+        }finally{
+            em.close();
+        }
+        
     }
     public void salvarOuAtualiza(Object o){
         etx.begin();
@@ -33,25 +41,30 @@ public class Dao {
         em.remove(o);
         etx.commit();//opcional --por padrão ao commit  
     }
+   
     public <T>T findTemplate(T o){
         return (T) em.find(o.getClass(),o);
+        
     }
     public Object findObject(Object o){
         return em.find(o.getClass(),o);
     }
-    public List findAll(Object o){
+    
+    //"select c.nome,c.idade from Cliente c"
+    public <T> List<T> findAll(T o){
         return em.createQuery("select o from "
-                +o.getClass().getSimpleName()+" o ").getResultList();
+                +o.getClass().getSimpleName()+" o").getResultList();
     }
-    public List findAllNativo(Object o){
-        return em.createNamedQuery("select * from "
-                +o.getClass().getSimpleName()+" o ",o.getClass()).getResultList();
+    public List findAllNativo(Class c){
+        return em.createNativeQuery("select * from "+c.getSimpleName(),c)
+                .getResultList();
     }
    
     public List findAllNativo(Produto o){
         List<Object[]> resultList = em.createNamedQuery("select  from "
                 +o.getClass().getSimpleName()+" o ").getResultList();
         List retorno = new LinkedList();
+       
         for (Object[] object : resultList) {
              Produto p = new Produto();
              p.setCodigo((Integer)object[0]);
