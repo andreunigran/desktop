@@ -9,6 +9,7 @@ public class CadastroProduto extends JDialog {
     JTextField txtPreco;
     public JTextField txtCodigo;
     public JTextField txtNome;
+    public JComboBox txtFornecedor;
     JTextField txtDescricao;
     JTextField txtQuantidade;
     
@@ -16,7 +17,7 @@ public class CadastroProduto extends JDialog {
     public CadastroProduto(boolean modal) {
         setModal(modal);
         setTitle("Cadastro de Produto");
-        setSize(400, 350);
+        setSize(400, 450);
         setLayout(null); // necessário para usar setBounds
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);//centraliza tela
@@ -79,13 +80,18 @@ public class CadastroProduto extends JDialog {
         txtCategoria.setBounds(120, 220, 200, 25);
         add(txtCategoria);
 
+        txtFornecedor = new JComboBox(new String[]{"1","2"});
+        txtFornecedor.setBounds(120, 260, 200, 25);
+        add(txtFornecedor);
+
+        
         // Botões
         btnSalvar = new JButton("Salvar");
-        btnSalvar.setBounds(80, 260, 100, 30);
+        btnSalvar.setBounds(80, 300, 100, 30);
         add(btnSalvar);
 
         JButton btnCancelar = new JButton("Cancelar");
-        btnCancelar.setBounds(200, 260, 100, 30);
+        btnCancelar.setBounds(200, 300, 100, 30);
         add(btnCancelar);
     }
 

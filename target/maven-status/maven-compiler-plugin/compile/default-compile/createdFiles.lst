@@ -1,12 +1,17 @@
 br/unigran/app/ProdutoController.class
+br/unigran/app/persistence/FornecedorDao.class
 br/unigran/telascadastro/ListarProduto.class
 br/unigran/models/Cliente.class
 br/unigran/models/Produto.class
 br/unigran/app/ClienteController.class
+br/unigran/app/persistence/InterfaceProdutoDao.class
 br/unigran/telascadastro/ListarProduto$1$1.class
 br/unigran/telascadastro/Principal.class
 br/unigran/app/SystemaAula.class
+br/unigran/app/persistence/InterfaceFornecedorDao.class
 br/unigran/app/persistence/Dao.class
 br/unigran/telascadastro/ListarProduto$1.class
+br/unigran/app/persistence/ProdutoDao.class
 br/unigran/telascadastro/CadastroCliente.class
+br/unigran/models/Fornecedor.class
 br/unigran/telascadastro/CadastroProduto.class

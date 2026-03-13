@@ -2,11 +2,14 @@ package br.unigran.models;
 
 import br.unigran.app.persistence.Dao;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Produto extends Dao implements Serializable{
@@ -21,7 +24,8 @@ public class Produto extends Dao implements Serializable{
     private Double preco;
     private Double quantidade;
     private String categoria;
-    private String seila;
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
+    private Fornecedor fornecedor;
     
 
     public Integer getCodigo() {
@@ -75,6 +79,20 @@ public class Produto extends Dao implements Serializable{
     public void salvar() {
         salvar(this);
     }
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+
+    @Override
+    public String toString() {
+        return nome;
+                }
+    
     
     
 }

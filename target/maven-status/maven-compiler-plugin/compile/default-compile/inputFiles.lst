@@ -2,7 +2,12 @@
 /home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/app/ProdutoController.java
 /home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/app/SystemaAula.java
 /home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/app/persistence/Dao.java
+/home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/app/persistence/FornecedorDao.java
+/home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/app/persistence/InterfaceFornecedorDao.java
+/home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/app/persistence/InterfaceProdutoDao.java
+/home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/app/persistence/ProdutoDao.java
 /home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/models/Cliente.java
+/home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/models/Fornecedor.java
 /home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/models/Produto.java
 /home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/telascadastro/CadastroCliente.java
 /home/andre/NetBeansProjects/provas/SystemaAula/src/main/java/br/unigran/telascadastro/CadastroProduto.java

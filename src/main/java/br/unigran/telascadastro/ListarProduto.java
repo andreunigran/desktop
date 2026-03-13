@@ -4,15 +4,13 @@
  */
 package br.unigran.telascadastro;
 
-import br.unigran.app.persistence.Dao;
-import br.unigran.models.Produto;
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
+import br.unigran.app.ProdutoController;
 
 /**
  *
  * @author andre
  */
+
 public class ListarProduto extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ListarProduto.class.getName());
@@ -87,19 +85,21 @@ public class ListarProduto extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        Dao dao = new Dao();
-        String[] titulo = new String[]{"Codigo","Nome"};
-        List<Produto> l = dao.findAll(new Produto());       
-        Object[][] data = new Object[titulo.length][l.size()];
-        for (int i = 0; i < l.size(); i++) {
-            data[0][i]=l.get(i).getCodigo();
-            data[1][i]=l.get(i).getDescricao();
-        }     
-        DefaultTableModel dtm = 
-                
-                new DefaultTableModel(data,
-                       titulo);
-        TabelaProduto.setModel(dtm);
+//        Dao dao = new Dao();
+//        String[] titulo = new String[]{"Codigo","Nome"};
+//        List<Produto> l = dao.findAll(new Produto());       
+//        Object[][] data = new Object[titulo.length][l.size()];
+//        for (int i = 0; i < l.size(); i++) {
+//            data[0][i]=l.get(i).getCodigo();
+//            data[1][i]=l.get(i).getDescricao();
+//        }     
+//        DefaultTableModel dtm = 
+//                
+//                new DefaultTableModel(data,
+//                       titulo);
+//        TabelaProduto.setModel(dtm);
+
+TabelaProduto.setModel(new ProdutoController().atualizaTabela());
 
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
@@ -141,7 +141,7 @@ public class ListarProduto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelaProduto;
+    public javax.swing.JTable TabelaProduto;
     private javax.swing.JButton btnPesquisa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
